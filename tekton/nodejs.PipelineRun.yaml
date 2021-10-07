@@ -7,9 +7,9 @@ spec:
     - name: app-name
       value: weather-nodejs-app
     - name: source-repo
-      value: 'https://github.com/chrisley75/weather-nodejs-app' 
+      value: 'https://github.com/rudydemayo/weather-nodejs-app' 
     - name: image-repo
-      value: quay.io/chrisley7506/weather-nodejs-app
+      value: quay.io/rdemayo/weatherapp
   pipelineRef:
     name: weather-nodejs-app
   serviceAccountName: build-bot

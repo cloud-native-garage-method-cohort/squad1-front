@@ -4,7 +4,7 @@ kind: ServiceAccount
 metadata:
   name: build-bot
 secrets:
-  - name: quay-io-credentials
+  - name: rdemayo-squad1-pull-secret
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role

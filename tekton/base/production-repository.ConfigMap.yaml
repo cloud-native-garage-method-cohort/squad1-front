@@ -7,5 +7,4 @@ data:
   host: github.com
   org: cloud-native-garage-method-cohort
   protocol: https
-  repo: emea-6-production
-
+  repo: squad1-production

@@ -1,0 +1,16 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: weather-nodejs-app
+  annotations:
+    haproxy.router.openshift.io/balance: roundrobin
+spec:
+  to:
+    name: weather-nodejs-app
+    kind: Service
+    weight: 50
+  alternateBackends:
+  - kind: Service
+    name: weather-nodejs-app-bluegreen
+    weight: 50
+  wildcardPolicy: None

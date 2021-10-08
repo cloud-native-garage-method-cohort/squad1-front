@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1alpha1
 kind: TriggerTemplate
 metadata:
-  name: vcs-trigger
+  name: vcs-trigger-bluegreen
 spec:
   params:
   - description: Source code repository
@@ -12,7 +12,7 @@ spec:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
     metadata:
-      generateName: weather-nodejs-app-pipelinerun-
+      generateName: weather-nodejs-app-pipelinerun-bluegreen-
     spec:
       params:
       - name: app-name
@@ -22,9 +22,9 @@ spec:
       - name: source-repo
         value: 'https://github.com/cloud-native-garage-method-cohort/squad1-front'
       - name: revision
-        value: main
+        value: feature-new-color
       pipelineRef:
-        name: weather-nodejs-app
+        name: weather-nodejs-app-bluegreen
       serviceAccountName: build-bot
       workspaces:
       - name: pipeline-shared-data

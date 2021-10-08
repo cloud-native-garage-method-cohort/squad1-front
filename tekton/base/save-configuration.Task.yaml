@@ -38,28 +38,28 @@ spec:
       valueFrom:
         configMapKeyRef:
           key: protocol
-          name: production-repository
+          name: user-acceptance-repository
           optional: true
     - name: GIT_HOST
       valueFrom:
         configMapKeyRef:
           key: host
-          name: production-repository
+          name: user-acceptance-repository
     - name: GIT_ORG
       valueFrom:
         configMapKeyRef:
           key: org
-          name: production-repository
+          name: user-acceptance-repository
     - name: GIT_REPO
       valueFrom:
         configMapKeyRef:
           key: repo
-          name: production-repository
+          name: user-acceptance-repository
     - name: GIT_BRANCH
       valueFrom:
         configMapKeyRef:
           key: branch
-          name: production-repository
+          name: user-acceptance-repository
           optional: true
     image: quay.io/ibmgaragecloud/ibmcloud-dev:v2.0.4
     name: gitops

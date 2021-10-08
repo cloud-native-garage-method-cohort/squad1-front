@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: production-repository
+  name: user-acceptance-repository
 data:
   branch: main
   host: github.com
   org: cloud-native-garage-method-cohort
   protocol: https
-  repo: squad1-production
+  repo: squad1-user-acceptance

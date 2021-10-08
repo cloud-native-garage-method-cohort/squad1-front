@@ -1,3 +1,9 @@
+FROM docker.elastic.co/beats/filebeat:7.15.0
+COPY filebeat.yml /usr/share/filebeat/filebeat.yml
+USER root
+RUN chown root:filebeat /usr/share/filebeat/filebeat.yml
+USER filebeat
+
 ## From latest Alpine Base image
 FROM alpine:latest
 
@@ -19,3 +25,6 @@ EXPOSE 8080
 
 # Run App
 CMD [ "npm", "start" ]
+
+
+

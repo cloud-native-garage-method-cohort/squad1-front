@@ -13,7 +13,7 @@ spec:
     - name: revision
       value: feature-new-color
   pipelineRef:
-    name: weather-nodejs-app
+    name: weather-nodejs-app-bluegreen
   serviceAccountName: build-bot
   workspaces:
     - name: pipeline-shared-data

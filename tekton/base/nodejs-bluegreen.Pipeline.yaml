@@ -10,6 +10,9 @@ spec:
     - description: Source code repository
       name: source-repo
       type: string
+    - description: Source code repository revision - branches
+      name: revision
+      type: string
     - default: ''
       description: Precise SHA of the commit to build
       name: sha

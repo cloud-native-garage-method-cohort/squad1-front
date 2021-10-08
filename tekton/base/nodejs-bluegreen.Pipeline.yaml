@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: weather-nodejs-app
+  name: weather-nodejs-app-bluegreen
 spec:
   params:
     - description: Application name
@@ -57,7 +57,7 @@ spec:
       workspaces:
         - name: source
           workspace: pipeline-shared-data
-    - name: create-configuration
+    - name: create-configuration-bluegreen
       params:
         - name: app-name
           value: $(params.app-name)
@@ -73,28 +73,28 @@ spec:
         - create-image
       taskRef:
         kind: Task
-        name: create-configuration
+        name: create-configuration-bluegreen
       workspaces:
         - name: source
           workspace: pipeline-shared-data
     - name: deploy
       params:
         - name: manifest
-          value: $(tasks.create-configuration.results.manifest)
+          value: $(tasks.create-configuration-bluegreen.results.manifest)
         - name: app-namespace
           value: $(context.pipelineRun.namespace)
       runAfter:
-        - create-configuration
+        - create-configuration-bluegreen
       taskRef:
         kind: Task
         name: deploy
       workspaces:
         - name: source
           workspace: pipeline-shared-data
-    - name: save-configuration
+    - name: save-configuration-bluegreen
       params:
         - name: manifest
-          value: $(tasks.create-configuration.results.manifest)
+          value: $(tasks.create-configuration-bluegreen.results.manifest)
         - name: app-name
           value: $(params.app-name)
         - name: sha
@@ -103,7 +103,7 @@ spec:
         - deploy
       taskRef:
         kind: task
-        name: save-configuration
+        name: save-configuration-bluegreen
       workspaces:
         - name: source
           workspace: pipeline-shared-data

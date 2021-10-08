@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-acceptance-repository-bluegreen
+data:
+  branch: main
+  host: github.com
+  org: cloud-native-garage-method-cohort
+  protocol: https
+  repo: squad1-user-acceptance
